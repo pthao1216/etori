@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>LIST TRUYỆN TỔNG TÀI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #dfb0b0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+        }
+
+        /* --- Navigation --- */
+        .top-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 999;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+            border: 2px solid #ffb9b3;
+        }
+
+        .nav-logo a {
+            color: #de9393;
+            font-family: "Pacifico", cursive;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-family: "Happy Monkey", sans-serif;
+            text-decoration: none;
+            color: white !important;
+            background: #ffb9b3;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #ff7671;
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #de9393;
+        }
+
+        /* --- Header --- */
+        .name-text {
+            color: white;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* --- Fieldset & List --- */
+        fieldset {
+            width: 95%;
+            max-width: 1000px;
+            border: 3px double #ff7671;
+            border-radius: 30px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(141, 110, 99, 0.2);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        fieldset::before {
+            content: "🌸 LIST TIỂU THUYẾT NỮ CƯỜNG   🌸";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff7671;
+            color: white;
+            padding: 5px 25px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+        }/* Style cho link trong fieldset (Video) */
+fieldset a {
+    text-decoration: none;
+    color: #5a2429; /* Màu nâu đỏ đồng bộ */
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+fieldset a:hover {
+    color: #ff7671; /* Đổi màu hồng khi di chuột */
+    transform: scale(1.02);
+}
+
+/* Style cho các nút Connect (Facebook, Instagram...) */
+.about-text a {
+    display: inline-block;
+    background: #ffb9b3;
+    color: white !important;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.about-text a:hover {
+    background: #ff7671;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(222,147,147,0.3);
+}
+
+        .list-ngoi-sao {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            /* Chia cột cho danh sách */
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        .list-ngoi-sao li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+            break-inside: avoid; /* Không để 1 dòng bị cắt đôi giữa 2 cột */
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .list-ngoi-sao li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 1px;
+        }
+
+        .list-ngoi-sao li:hover {
+            color: #ff7671;
+            transform: translateX(8px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #fbeaea;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 20px;
+                display: none;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a {
+                color: #de9393 !important;
+                background: white;
+                border: 1px solid #ffb9b3;
+            }
+            .list-ngoi-sao {
+                column-count: 1; /* Trên mobile hiện 1 cột cho dễ đọc */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="name-icon">
+    <p class="name-text"><b>
+        ૮₍´˶• . • ⑅ ₎ა<br>
+        ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+    </b></p>
+</div><fieldset>
+    <ul class="list-ngoi-sao">
+        <li>Khóa chặt đôi môi</li>
+        <li>Ông xã đại nhân siêu quyền lực</li>
+        <li>Đại tiểu thư không có ý đồ xấu đâu</li>
+        <li>Nữ vương trùng sinh ngược cặn bã</li>
+        <li>Nhất phẩm đích nữ (cổ trang)</li>
+        <li>Chọc giận chủ tịch tổng tài (p1)</li>
+        <li>Chọc giận chủ tịch tổng tài (p2)</li>
+        <li>Thị huyết y phi (cổ trang)</li>
+        <li>Thất vương phi báo thù (cổ trang)</li>
+        <li>Không gian trùng sinh phu nhân vợ hào môn không dễ đụng</li>
+        <li>Kính chào nữ vương đại nhân</li>
+        <li>Vạn tra triêu hoàng</li>
+        <li>Thế giới đệ nhất cự tinh</li>
+        <li>Nhật kí ngược tra của đặc công vương phi (cổ trang)</li>
+        <li>Phụng nghịch thiên hạ (cổ trang)</li>
+        <li>Vương phi hung hãn: lãnh vương hãy tự trọng (cổ trang)</li>
+        <li>Bạn gái tuổi 30+</li>
+        <li>Phong khởi thương lam</li>
+        <li>Pháp y cuồng phi (cổ trang)</li>
+        <li>Ta xuyên thành hoàng hậu ác độc (cổ trang)</li>
+        <li>Quý cô không thể tiếp cận (âu cổ)</li>
+        <li>Phương pháp bảo vệ anh trai nữ chính (âu cổ)</li>
+        <li>Ngày nào thiếu soái cũng ghen</li>
+        <li>Phượng hoàng vu phi (cổ đại)</li>
+        <li>Bạo sủng tiểu manh phi</li>
+        <li>Tà vương phúc hắc sủng tận xương (cổ đại)</li>
+        <li>Phế nữ yêu thần (cổ đại)</li>
+        <li>Phượng ngự tà vương (cổ đại)</li>
+        <li>Hoàng hậu ương bướng (cổ đại)</li>
+        <li>Tuyệt sắc quyến rũ: quỷ y chí tôn (cổ đại)</li>
+        <li>Ẩn hôn 100%: Chọc tức vợ yêu mua một tặng một</li>
+        <li>Cô Vợ Nhỏ Nuông Chiều Quá Lại Thành Ác!!</li>
+        <li>Trọng Sinh Trở Lại: Sủng Nịch Độc Nhất Vô Nhị</li>
+        <li>Trọng Sinh Chi Ức Vạn Ảnh Hậu Yếu Thượng Vị</li>
+        <li>Tồn Tại Với Tư Cách Là Vợ Của Nam Chính (âu cổ)</li>
+        <li>Cuồng nhiệt boss, sủng thê xin kiềm chế</li>
+        <li>Ma Vương Đại Nhân, Phu Nhân Lại Bỏ Đi Rồi! (cổ đại)</li>
+        <li>Liệt Hỏa Cuồng Phi: Vương Gia Thú Tính Muốn Sủng (cổ đại)</li>
+        <li>Độc Phi Ngu Ngốc Không Thể Chọc (cổ đại)</li>
+        <li>Khuynh Thành Cuồng Phi Của Tà Vương (cổ đại)</li>
+        <li>Gả Cho Một Tên Thái Giám Đáng Ghét (cổ đại)</li>
+        <li>Trò Chơi Trừng Phạt (cổ đại)</li>
+        <li>Đế Thiếu Ngọt Sủng: Manh Thê Sống Lại Không Ngoan</li>
+        <li>Công Chúa Phản Diện Trong Truyền Thuyết (âu cổ)</li>
+        <li>Công Chúa Xấu Xa (âu cổ)</li>
+        <li>Vương tử thành phố và công chúa Amazon</li>
+        <li>Trọng sinh trở thành phu nhân huyết tộc</li>
+        <li>Bảo Bối Đáng Yêu Đột Kích</li>
+        <li>Cô Vợ Đáng Yêu của Tổng Giám Đốc Mặt Lạnh</li>
+        <li>Từ chối kết hôn với đại gia: cô dâu bỏ trốn</li>
+    </ul>
+</fieldset>
+<fieldset><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@_etori1012_/video/7034445117020769538" data-video-id="7034445117020769538" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@_etori1012_" href="https://www.tiktok.com/@_etori1012_?refer=embed">@_etori1012_</a> Mới có 50 bộ thôi tại mk mới đi tiêm đau tay quá viết được ít . Lầm tới làm cổ đại nhá.<a title="truyentranh" target="_blank" href="https://www.tiktok.com/tag/truyentranh?refer=embed">#truyentranh</a> <a title="🍓aikatsu_pripara🌈" target="_blank" href="https://www.tiktok.com/tag/%F0%9F%8D%93aikatsu_pripara%F0%9F%8C%88?refer=embed">#🍓aikatsu_pripara🌈</a> <a title="rirương✨" target="_blank" href="https://www.tiktok.com/tag/rir%C6%B0%C6%A1ng%E2%9C%A8?refer=embed">#rirương✨</a> <a title="xuhuong" target="_blank" href="https://www.tiktok.com/tag/xuhuong?refer=embed">#xuhuong</a> <a title="kininami" target="_blank" href="https://www.tiktok.com/tag/kininami?refer=embed">#kininami</a> <a target="_blank" title="♬ Thay Lòng (Yang Remix) - Hương Ly, BD Media Music" href="https://www.tiktok.com/music/Thay-Lòng-Yang-Remix-7020360795696106242?refer=embed">♬ Thay Lòng (Yang Remix) - Hương Ly, BD Media Music</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>  🎬 Xem video TikTok của mình tại đây
+    </a>
+</fieldset>
+
+<div class="about">
+  <div class="pacifico-regular"><p>Connect with me</div>
+  <div class="about-text">
+    <a href="https://www.facebook.com/phuong.thao.754970/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/etori1216/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@_etori1012_" target="_blank">Tiktok</a>
+  </div>
+</div>
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

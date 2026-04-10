@@ -1,0 +1,498 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>LIST TRUYỆN TỔNG TÀI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #dfb0b0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+        }
+
+        /* --- Navigation --- */
+        .top-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 999;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+            border: 2px solid #ffb9b3;
+        }
+
+        .nav-logo a {
+            color: #de9393;
+            font-family: "Pacifico", cursive;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-family: "Happy Monkey", sans-serif;
+            text-decoration: none;
+            color: white !important;
+            background: #ffb9b3;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #ff7671;
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #de9393;
+        }
+
+        /* --- Header --- */
+        .name-text {
+            color: white;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* --- Fieldset & List --- */
+        fieldset {
+            width: 95%;
+            max-width: 1000px;
+            border: 3px double #ff7671;
+            border-radius: 30px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(141, 110, 99, 0.2);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        fieldset::before {
+            content: "🌸 LIST TRUYỆN TRANH ÂU CỔ	🌸";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff7671;
+            color: white;
+            padding: 5px 25px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+        }/* Style cho link trong fieldset (Video) */
+fieldset a {
+    text-decoration: none;
+    color: #5a2429; /* Màu nâu đỏ đồng bộ */
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+fieldset a:hover {
+    color: #ff7671; /* Đổi màu hồng khi di chuột */
+    transform: scale(1.02);
+}
+
+/* Style cho các nút Connect (Facebook, Instagram...) */
+.about-text a {
+    display: inline-block;
+    background: #ffb9b3;
+    color: white !important;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.about-text a:hover {
+    background: #ff7671;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(222,147,147,0.3);
+}
+
+        .list-ngoi-sao {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            /* Chia cột cho danh sách */
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        .list-ngoi-sao li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+            break-inside: avoid; /* Không để 1 dòng bị cắt đôi giữa 2 cột */
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .list-ngoi-sao li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 1px;
+        }
+
+        .list-ngoi-sao li:hover {
+            color: #ff7671;
+            transform: translateX(8px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #fbeaea;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 20px;
+                display: none;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a {
+                color: #de9393 !important;
+                background: white;
+                border: 1px solid #ffb9b3;
+            }
+            .list-ngoi-sao {
+                column-count: 1; /* Trên mobile hiện 1 cột cho dễ đọc */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="name-icon">
+    <p class="name-text"><b>
+        ૮₍´˶• . • ⑅ ₎ა<br>
+        ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+    </b></p>
+</div><fieldset>
+    <ul class="list-ngoi-sao">
+        <li>Bỗng một ngày nọ tôi trở thành công chúa</li>
+        <li>Cha à, con không muốn kết hôn đâu</li>
+        <li>Ác nữ là con rối</li>
+        <li>Kẻ tạo ra ác nữ</li>
+        <li>Trở thành vợ của thái tử quái dị</li>
+        <li>Hôn phu ẩn sắc</li>
+        <li>Xin hãy bỏ mặc tôi</li>
+        <li>Kiếp này, ta nhất định trở thành gia chủ</li>
+        <li>Công chúa khắc dấu lên kẻ phản nghịch</li>
+        <li>Cách để em bảo vệ anh</li>
+        <li>Tiểu thư muốn được nghỉ ngơi</li>
+        <li>Cách bảo vệ anh trai nam chính</li>
+        <li>Tôi trở thành hầu gái của một công tước</li>
+        <li>Kỵ sĩ sống dưới thân phận tiểu thư</li>
+        <li>Nữ công tước với tâm hồn trống rỗng</li>
+        <li>Vương miện Viridescent</li>
+        <li>Trở thành mẹ của nhân vật phản diện</li>
+        <li>Tôi trở thành mẹ của nam chính</li>
+        <li>Quyến rũ papa của nhân vật phản diện</li>
+        <li>Em gái thân yêu của công tước phản diện</li>
+        <li>Hướng tới ánh dương</li>
+        <li>Tế phẩm công chúa</li>
+        <li>Nữ vương đích thủ đao</li>
+        <li>Romeo và Juliet</li>
+        <li>Chồng à, mình ly hôn đi</li>
+        <li>Tôi trở thành vợ nam chính trong tiểu thuyết</li>
+        <li>Tồn tại với tư cách là vợ nam chính</li>
+        <li>Tôi là bạn gái cũ của một người lính</li>
+        <li>Tôi đánh mất dây xích dành cho nam chính yandere</li>
+        <li>Anh vào nhầm nhà rồi nhân vật phản diện ạ</li>
+        <li>Tôi xuyên thành tiểu thư nhà công tước</li>
+        <li>Ác nữ trùng sinh</li>
+        <li>Sinh ra là con gái của ác nữ</li>
+        <li>Aidin</li>
+        <li>Tôi sẽ không vờ như chẳng thấy nữa</li>
+        <li>Chúng ta có thể trở thành người nhà không?</li>
+        <li>Trước tiên phải giấu em trai cái đã</li>
+        <li>Chồng em dễ thương chết mất thôi</li>
+        <li>Ác nữ giả ngốc</li>
+        <li>Tiệm búp bê của công chúa</li>
+        <li>Trở thành điều hương sư riêng của bạo chúa</li>
+        <li>Chướng nghiệp đỏ thẫm</li>
+        <li>Xin ngài đừng ăn tôi</li>
+        <li>Tôi đã sinh con cho kẻ sát nhân</li>
+        <li>Lady baby</li>
+        <li>Quan hệ cộng sinh giữa hắc báo và bạch thỏ</li>
+        <li>Quý cô không thể tiếp cận</li>
+        <li>Mọi thứ đều là sai lầm</li>
+        <li>Thuần hóa bạn thân thành bạo quân</li>
+        <li>Tôi gặp nam chính trong tù</li>
+        <li>Bí mật của quý cô</li>
+        <li>Tôi sẽ cố gắng thay đổi cốt truyện</li>
+        <li>Trở thành tiểu thư xấu xí</li>
+        <li>Nữ chủ ranh ma muốn tôi làm mẹ kế</li>
+        <li>Tôi thuần hóa bạo quân rồi bỏ trốn</li>
+        <li>Con gái chồng thật dễ thương</li>
+        <li>Trở thành em gái của nam chính</li>
+        <li>Thư ký của bạo chúa</li>
+        <li>Người bảo hộ của bạo quân là ma nữ tàn độc</li>
+        <li>Kết cục của nhân vật phản diện chỉ có thể là chết</li>
+        <li>Ác nữ khi yêu</li>
+        <li>Con có phải con gái của người không?</li>
+        <li>Tôi trở thành gia sư của bạo quân</li>
+        <li>Lady to queen</li>
+        <li>Beatrice</li>
+        <li>Cuộc sống nhàm chán của quý cô tái sinh</li>
+        <li>Công chúa bé bỏng</li>
+        <li>Chị tôi đã nhặt về một nam chính quyến rũ</li>
+        <li>Một cô hầu gái tài giỏi</li>
+        <li>Tôi đã cướp mất đêm đầu tiên của nam chính</li>
+        <li>50 công thức pha trà của nữ công tước</li>
+        <li>Tôi là tình cũ của nam chính</li>
+        <li>Nữ đầu bếp hoàng gia</li>
+        <li>Tôi sẽ chỉ sống như một kẻ phản diện</li>
+        <li>Hoàng phi bóng tối</li>
+        <li>Xuyên không trở thành mami phản diện</li>
+        <li>Tôi là tiểu thư của gia đình này</li>
+        <li>Thiên thần được nuôi nấng bởi bạo chúa</li>
+        <li>Con gái của đại pháp sư</li>
+        <li>Ác nữ tái sinh</li>
+        <li>Dưới bóng cây sồi</li>
+        <li>Hoàng hậu tái hôn</li>
+        <li>Ác nữ phản diện đảo ngược đồng hồ cát</li>
+        <li>Sinh đôi xuyên không</li>
+        <li>Vị hôn thê hợp đồng của công tước</li>
+        <li>Hoàng phi bị ruồng bỏ</li>
+        <li>Cuộc hôn nhân giả dối</li>
+        <li>Quý cô quyền lực</li>
+        <li>Công chúa giả điên</li>
+        <li>Vẻ đẹp của ác ma</li>
+        <li>Con gái của công tước quái vật</li>
+        <li>Công nương đã thay đổi</li>
+        <li>Kết cục có hậu của nhân vật phản diện</li>
+        <li>Điều ước tuyệt vời</li>
+        <li>Tôi sẽ thực hiện cuộc hôn nhân này</li>
+        <li>Tôi là vị hôn thê phản diện</li>
+        <li>Trở thành vợ của nam chính phế vật</li>
+        <li>Xin hãy cho tôi về nhà</li>
+        <li>Ebony, quạ đen</li>
+        <li>Đức hạnh của ác nữ phản diện</li>
+        <li>Mau đến đây lần đầu thấy ác nữ như này phải không</li>
+        <li>Công chúa phản diện trong tiểu thuyết</li>
+        <li>Vị hôn thê của kẻ săn mồi</li>
+        <li>Lời tỏ tình nhầm lẫn</li>
+        <li>Đeo bám tôi cũng vô ích thôi</li>
+        <li>Lily ác độc</li>
+        <li>Tôi là minh chứng của sự thật</li>
+        <li>Kết hôn cùng nhân vật phản diện</li>
+        <li>Trở thành người nhà của nhân vật phản diện</li>
+        <li>Ác nữ giả khờ</li>
+        <li>Tiểu thư muốn được nghỉ ngơi</li>
+        <li>Cẩn thận nữ phụ phản diện đấy</li>
+        <li>Liều thuốc an thần của bạo chúa</li>
+        <li>Tôi đã tìm được chồng khi đi nhặt nam chính</li>
+        <li>Thú cưng của nhân vật phản diện</li>
+        <li>Theo dấu vụn bánh</li>
+        <li>Bạo quân cùng ác nữ</li>
+        <li>Nhân vật phản diện yêu cầu tôi yêu chàng</li>
+        <li>Y tá ngọt ngào của hoàng tử (nên đọc nha)</li>
+        <li>Kế hoạch sống còn của công chúa nữ phụ</li>
+        <li>Ngài đại công tước, đó là một sai lầm</li>
+        <li>Dạy cách cư xử cho bạo quân</li>
+        <li>Elizabeth</li>
+        <li>Công chúa truyền tin</li>
+        <li>Dàn trai đẹp chốn hậu cung</li>
+        <li>May mắn hay bất hạnh</li>
+        <li>Ta không phải là Cinderella</li>
+        <li>Tôi trở thành mẹ kế của Cinderella</li>
+        <li>Giết chết ác nữ phản diện</li>
+        <li>Trở thành con gái nuôi của nam chính</li>
+        <li>Một ngày nọ tôi trở thành con gái nhà vua</li>
+        <li>Ta trở thành con gái nuôi của nam chính</li>
+        <li>Tôi đã mệt rồi</li>
+        <li>Tôi chỉ đi tìm cha thôi</li>
+        <li>Tôi không có ý định quyến rũ nam chính đâu</li>
+        <li>Quy luật sinh tồn của nữ phụ</li>
+        <li>Tôi muốn trở thành cô ấy dù chỉ một ngày</li>
+        <li>Thực ra tôi mới là thật</li>
+        <li>Ngày mà ngôi sao thả rơi mặt trời</li>
+        <li>Cách để che dấu sai lầm</li>
+        <li>Tôi không muốn trở thành cầu ô thước</li>
+        <li>Con thỏ quyền quý của công chúa mạo danh</li>
+        <li>Quý cô thế giới ngầm</li>
+        <li>Phương pháp làm chồng hướng về phía em</li>
+        <li>Cuộc sống mới của công nương</li>
+        <li>Anh trai tôi quá hiền lành làm tôi lo lắng ghê</li>
+        <li>Hoán đổi linh hồn</li>
+        <li>Trở thành bạch nguyệt quang của phản diện hắc hóa</li>
+        <li>Con gái của công tước ác ma</li>
+        <li>Tình địch quái gở lại tăng thêm rồi</li>
+        <li>Nuôi dưỡng đỉnh cấp lão công</li>
+        <li>A nào, ngậm thìa vàng nhé?</li>
+        <li>Nhật ký tuần trăng mật của phù thủy và rồng</li>
+        <li>Yêu tôi đi dù sao ngài cũng chỉ là một nhân vật phụ thôi mà</li>
+        <li>Đại dương kiêu sa</li>
+        <li>Tôi chỉ là một tiểu thư bình thường</li>
+        <li>Thuần hóa quái vật thật tốt</li>
+        <li>Để ta hiểu nhau hơn</li>
+        <li>Hung mãnh tiểu thư</li>
+        <li>Lời cầu hôn từ kẻ phản diện</li>
+        <li>Công tước, tại sao ngài lại làm thế</li>
+        <li>Phản phái nữ tướng đích nghịch tập</li>
+        <li>Vị thánh ẩn</li>
+        <li>Sierra</li>
+        <li>Kế hoạch chọn papa cho công chúa</li>
+        <li>Đừng bị ám ảnh bởi một tinh linh như tôi</li>
+        <li>Tại sao tôi không được yêu thương</li>
+        <li>Người hùng của ác nữ</li>
+        <li>Ác nữ giả ngốc</li>
+        <li>Công chúa xấu xa</li>
+        <li>Tôi sẽ dành papa của mình vào ngày hôm nay</li>
+        <li>Công chúa tóc đen</li>
+        <li>Ta đã từng mong nàng biến mất</li>
+        <li>Quý cô thế lực ngầm</li>
+        <li>Lilien của Turin</li>
+        <li>Công tước hát rong</li>
+        <li>Bông hồng cũng có Death Flag</li>
+        <li>Tôi là tình cũ của nam chính</li>
+        <li>Căn hộ kí túc xá của pháp sư</li>
+        <li>Lucia</li>
+        <li>Hôn ước ngàn năm</li>
+        <li>Con gái công tước sẽ đình công</li>
+        <li>Sự ngây thơ của nàng Elizabeth</li>
+        <li>Chiếm lấy trái tim hoàng đế</li>
+        <li>Kế hoạch cho nụ hôn đầu tiên</li>
+        <li>Đi tìm nàng Camellia</li>
+        <li>Baby mai mối là công chúa</li>
+        <li>Tôi đang cân nhắc rời khỏi vai phản diện</li>
+        <li>Trò chơi trọng sinh hoàng tử khó chiều</li>
+        <li>Hệ thống công lược của tiểu công chúa</li>
+        <li>Quy tắc sinh tồn của công chúa</li>
+        <li>Cách để nhân vật phụ phá đảo game hẹn hò</li>
+        <li>Những kẻ mạnh nhất thế giới đều đeo bám tôi</li>
+        <li>Nhân vật phản diện đức hạnh nhất</li>
+        <li>Bệ hạ, ta sẽ nuôi dạy con của ngài thật tốt</li>
+        <li>Điều ước tuyệt vời</li>
+        <li>Ba người anh trai của tôi là bạo quân</li>
+        <li>Ác nữ công chúa</li>
+        <li>Ác nữ muốn sống trong ngôi nhà bánh ngọt</li>
+        <li>Bạo chúa đã yêu tôi rồi</li>
+        <li>Mặt nạ công chúa</li>
+        <li>Huynh khống công tước gả không được</li>
+        <li>Kế hoạch đánh chiếm của công chúa nghèo</li>
+        <li>Bản khế ước với nữ công tước ác ma</li>
+        <li>Công tước đó là một đại sai lầm</li>
+        <li>Vị tiểu thư tôi từng theo hầu đã trở thành thiếu gia</li>
+        <li>5 đệ tử của đại pháp sư Charlotte</li>
+        <li>Cách tạo ra một công chúa</li>
+        <li>Roelyn tiến bước đến tương lai</li>
+        <li>Kế hoạch tự cứu của phản phái ma nữ</li>
+        <li>Người hầu của tôi</li>
+        <li>Quy luật sinh tồn của nữ phụ</li>
+        <li>Sự ra đời của anh hùng</li>
+        <li>Tôi không còn yêu anh nữa</li>
+        <li>Ôi nàng hầu của tôi</li>
+        <li>Hầu nữ giá đáo</li>
+        <li>Ta đã sinh con cho bạo quân</li>
+        <li>Tại sao nhà vua cần một thư ký</li>
+        <li>Tôi đã sinh con cho kẻ sát nhân</li>
+        <li>Đế chế Itan của Jacheongbi</li>
+        <li>Nữ hiệp sĩ trở về</li>
+        <li>Đứa con vô dụng nhà công tước</li>
+        <li>Hung mãnh tiểu thư</li>
+        <li>Khu vườn im lặng</li>
+        <li>Đừng gọi tôi là chị</li>
+        <li>Khu vườn của những bông hoa đỏ rực</li>
+        <li>Chị gái của nhân vật phản diện phải chịu trách nhiệm</li>
+        <li>Quý cô olive tuyệt vời</li>
+        <li>Dù sao đó cũng là Ropan</li>
+        <li>Đầu bếp hoàng gia</li>
+        <li>Người vợ hợp đồng của chồng ốm yếu</li>
+        <li>Công chúa phản diện muốn sống</li>
+        <li>Tôi đã ly hôn nhưng lại trở thành tài phiệt</li>
+        <li>Tôi tái sinh thành một nữ công tước độc ác</li>
+        <li>Thanh tra của Muiella</li>
+        <li>Khế ước ác ma</li>
+        <li>Hoàng đế đảo ngược thời gian</li>
+        <li>Tôi không tin tưởng người em song sinh của mình</li>
+        <li>Lời cầu hôn đến từ hoàng tử</li>
+        <li>Tình yêu thầm lặng của đế quốc bí ẩn</li>
+        <li>Sự trở lại của Alice thần thánh</li>
+        <li>Trở thành kí ức của nam chính</li>
+        <li>Tiểu thư Scarlet, em không muốn trả thù sao?</li>
+        <li>Đây là cuộc hôn nhân giả dối</li>
+        <li>Ngày nào đó trở thành công chúa tế phẩm</li>
+        <li>Bệ hạ, xin ngài đừng giết tôi nữa</li>
+        <li>Nữ công tước quạ</li>
+        <li>Cô dâu của miêu hoàng tử</li>
+        <li>May mắn hay bất hạnh</li>
+        <li>Sự trở lại của pháp sư cấp 8</li>
+    </ul>
+</fieldset>
+<fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7029203045393190170?is_from_webapp=1&sender_device=pc">xem video của tui ở đây</a>
+</fieldset>
+
+<div class="about">
+  <div class="pacifico-regular"><p>Connect with me</div>
+  <div class="about-text">
+    <a href="https://www.facebook.com/phuong.thao.754970/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/etori1216/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@_etori1012_" target="_blank">Tiktok</a>
+  </div>
+</div>
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>LIST TRUYỆN TRANH THANH XUÂN VƯỜN TRƯỜNG</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #dfb0b0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+        }
+
+        /* --- Navigation --- */
+        .top-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 999;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+            border: 2px solid #ffb9b3;
+        }
+
+        .nav-logo a {
+            color: #de9393;
+            font-family: "Pacifico", cursive;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-family: "Happy Monkey", sans-serif;
+            text-decoration: none;
+            color: white !important;
+            background: #ffb9b3;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #ff7671;
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #de9393;
+        }
+
+        /* --- Fieldset & List --- */
+        fieldset {
+            width: 95%;
+            max-width: 1000px;
+            border: 3px double #ff7671;
+            border-radius: 30px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(141, 110, 99, 0.2);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .main-list::before {
+            content: "🌸 LIST TRUYỆN TRANH THANH XUÂN VƯỜN TRƯỜNG 🌸";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff7671;
+            color: white;
+            padding: 5px 25px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .list-ngoi-sao {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        .list-ngoi-sao li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            transition: 0.3s;
+            break-inside: avoid;
+        }
+
+        .list-ngoi-sao li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 1px;
+        }
+
+        .list-ngoi-sao li:hover {
+            color: #ff7671;
+            transform: translateX(8px);
+        }
+
+        /* Link trong fieldset */
+        fieldset a {
+            text-decoration: none;
+            color: #5a2429;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        fieldset a:hover {
+            color: #ff7671;
+        }
+
+        /* Connect with me */
+        .pacifico-regular {
+            font-family: "Pacifico", cursive;
+            font-size: 40px;
+            color: #5a2429;
+        }
+
+        .about-text a {
+            display: inline-block;
+            background: #ffb9b3;
+            color: white !important;
+            padding: 8px 18px;
+            margin: 5px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .about-text a:hover {
+            background: #ff7671;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #fbeaea;
+                flex-direction: column;
+                display: none;
+            }
+            .nav-links.show { display: flex; }
+            .list-ngoi-sao { column-count: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div style="margin-top: 30px;">
+    <p style="color: white; font-size: 1.5em; font-family: 'Happy Monkey';">
+        ૮₍´˶• . • ⑅ ₎ა<br>
+        ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+    </p>
+</div>
+
+<fieldset class="main-list">
+    <ul class="list-ngoi-sao">
+        <li>Con tim rung động (Bộ này đẳng cấp)</li>
+        <li>Vụng trộm không thể giấu (art đẹp lắm luôn)</li>
+        <li>Cạm bẫy của hồ ly (art đẹp, đẳng cấp luôn)</li>
+        <li>Ngôi sao cho tôi (Bộ này xinh xỉu)</li>
+        <li>Xin chào bạn học thụ động</li>
+        <li>Tiến gần trái tim em</li>
+        <li>Tháng 6 không hẹn mà gặp</li>
+        <li>Lại gặp được em (tui mê cặp phụ)</li>
+        <li>Tình yêu mùa hoa anh thảo</li>
+        <li>Hotboy bóng rổ</li>
+        <li>Tiểu thư đỏng đảnh (end)</li>
+        <li>Hoa khôi vương bài (end)</li>
+        <li>Học bá ca ca đừng chạm vào tôi (end)</li>
+        <li>Mùa hạ năm đó (end)</li>
+        <li>Này đừng đụng vào phô mai của tôi (end)</li>
+        <li>Xuyên khê nhập mộng (end)</li>
+        <li>Bắt thiếu gia làm bạn trai (end)</li>
+        <li>Mình bị idol ....xxx (end)</li>
+        <li>Giáo sư tổng tài đi theo tôi (end)</li>
+        <li>Thành dã tiêu hà (end)</li>
+        <li>Trọng sinh trở thành phu nhân huyết tộc</li>
+        <li>Đóa hoa chớm nở</li>
+        <li>Quả táo của anh ấy (Đỉnh)</li>
+        <li>Phù thủy hạng bét</li>
+        <li>Đừng khóc (xịn xò)</li>
+        <li>Vấp phải phản quang</li>
+        <li>Trú dạ liên miên (Đẹp ngất ngây)</li>
+        <li>Dolo viên nhộng vận mệnh</li>
+        <li>SOS, tôi đã yêu một con sâu bướm</li>
+        <li>Hotboy quốc dân là nữ</li>
+        <li>Anh ấy rất hay trêu chọc tôi</li>
+        <li>Em là bạc hà mèo của tôi</li>
+        <li>Chàng trai người máy ấm áp 741 của tôi</li>
+        <li>Anh không thích thế giới này, anh chỉ thích em</li>
+        <li>Chọc phải điện hạ yêu nghiệt</li>
+        <li>Nam thần luôn muốn chọc ghẹo tôi</li>
+        <li>Mối tình đầu không trọn vẹn</li>
+        <li>Hôm nay cậu ấy vẫn rất đáng yêu</li>
+        <li>Gửi em, người đặc biệt</li>
+        <li>Công chúa nữ vương mệnh</li>
+        <li>Anh ấy và xương sườn của cô ấy</li>
+        <li>Đầu gấu biết yêu</li>
+        <li>Hướng tới ánh mặt trời</li>
+        <li>Ngôi sao trong nước</li>
+        <li>Hôm nay tôi sẽ yêu ai đây (end)</li>
+        <li>Vị hôn phu được chọn của tôi (end)</li>
+        <li>Hoa bỏ chạy cùng nhím rồi</li>
+        <li>Thiếu nữ nhìn thấy thời gian</li>
+        <li>Cp gõ cửa đòi yêu đương phải làm sao?</li>
+        <li>Không thể đến gần</li>
+        <li>Nước mắt của em thật ngọt ngào</li>
+        <li>Tôi và lịch sử yêu đương của tôi</li>
+        <li>Mưa phùn tĩnh lặng</li>
+        <li>Thầm yêu quất sinh hoài nam</li>
+        <li>Lưu giữ kỉ niệm thời học sinh</li>
+        <li>Thanh ninh chi hạ</li>
+        <li>Liêu hoa</li>
+        <li>Đây là ái không phải yêu</li>
+        <li>Nhặt được hoa khôi về làm vợ</li>
+    </ul>
+</fieldset>
+
+<fieldset>
+    <legend style="background: #ff7671; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold;">Bonus: Tiểu thuyết thanh xuân vườn trường</legend>
+    <ul class="list-ngoi-sao">
+        <li>Bệnh trạng chiếm hữu</li>
+        <li>Chiều em đau cả trái tim</li>
+        <li>Làm nũng trong lòng anh</li>
+        <li>Có tên điên cuồng muốn độc chiếm tôi</li>
+        <li>Tôi là tình đầu đã chết của anh</li>
+        <li>Mỹ nhân yêu kiều của nhân vật phản diện sống lại rồi</li>
+        <li>Nhớ em</li>
+        <li>Nhiệt độ cơ thể của ác ma</li>
+        <li>Bệnh yêu</li>
+        <li>Chiếc bật lửa và váy công chúa</li>
+    </ul>
+</fieldset>
+
+<fieldset>
+    <a href="https://www.tiktok.com/@_etori1012_/video/7041448827831766273" target="_blank">🎬 Xem Video Review tại TikTok</a>
+</fieldset>
+
+<div class="about">
+    <div class="pacifico-regular">Connect with me</div>
+    <div class="about-text">
+        <a href="https://www.facebook.com/phuong.thao.754970/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/etori1216/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@_etori1012_" target="_blank">Tiktok</a>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

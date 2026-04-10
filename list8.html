@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>LIST TRUYỆN TỔNG TÀI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #dfb0b0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+        }
+
+        /* --- Navigation --- */
+        .top-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 999;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+            border: 2px solid #ffb9b3;
+        }
+
+        .nav-logo a {
+            color: #de9393;
+            font-family: "Pacifico", cursive;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-family: "Happy Monkey", sans-serif;
+            text-decoration: none;
+            color: white !important;
+            background: #ffb9b3;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #ff7671;
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #de9393;
+        }
+
+        /* --- Header --- */
+        .name-text {
+            color: white;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* --- Fieldset & List --- */
+        fieldset {
+            width: 95%;
+            max-width: 1000px;
+            border: 3px double #ff7671;
+            border-radius: 30px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(141, 110, 99, 0.2);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        fieldset::before {
+            content: "🌸 LIST TIỂU THUYẾT NGÔN TÌNH THANH XUÂN VƯỜN TRƯỜNG    🌸";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff7671;
+            color: white;
+            padding: 5px 25px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+        }/* Style cho link trong fieldset (Video) */
+fieldset a {
+    text-decoration: none;
+    color: #5a2429; /* Màu nâu đỏ đồng bộ */
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+fieldset a:hover {
+    color: #ff7671; /* Đổi màu hồng khi di chuột */
+    transform: scale(1.02);
+}
+
+/* Style cho các nút Connect (Facebook, Instagram...) */
+.about-text a {
+    display: inline-block;
+    background: #ffb9b3;
+    color: white !important;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.about-text a:hover {
+    background: #ff7671;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(222,147,147,0.3);
+}
+
+        .list-ngoi-sao {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            /* Chia cột cho danh sách */
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        .list-ngoi-sao li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+            break-inside: avoid; /* Không để 1 dòng bị cắt đôi giữa 2 cột */
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .list-ngoi-sao li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 1px;
+        }
+
+        .list-ngoi-sao li:hover {
+            color: #ff7671;
+            transform: translateX(8px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #fbeaea;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 20px;
+                display: none;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a {
+                color: #de9393 !important;
+                background: white;
+                border: 1px solid #ffb9b3;
+            }
+            .list-ngoi-sao {
+                column-count: 1; /* Trên mobile hiện 1 cột cho dễ đọc */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="name-icon">
+    <p class="name-text"><b>
+        ૮₍´˶• . • ⑅ ₎ა<br>
+        ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+    </b></p>
+</div><fieldset>
+    <ul class="list-ngoi-sao">
+        <li>Bệnh yêu</li>
+        <li>Bệnh chiếm hữu</li>
+        <li>Duyên tới là anh</li>
+        <li>Mãi mãi là bao xa</li>
+        <li>Em chỉ có thể thích anh</li>
+        <li>Ai gửi cánh thư vào trong mây</li>
+        <li>Hóa ra anh vẫn ở đây</li>
+        <li>Tiểu khả ái tan học đừng đi</li>
+        <li>Mỹ nhân yêu kiều của nhân vật phản diện</li>
+        <li>Nam thần bị tôi đá điên cuồng theo đuổi tôi</li>
+        <li>Trở về năm tháng bố tôi là hotboy</li>
+        <li>Cô gái năm ấy chúng ta từng theo đuổi</li>
+        <li>Bí mật nơi góc tối</li>
+        <li>Bức thư bị lãng quên</li>
+        <li>Bong bóng mùa hè</li>
+        <li>Trăm năm hòa hợp ước định một đời</li>
+        <li>Anh có thích nước Mỹ không?</li>
+        <li>Không thể quên em</li>
+        <li>Con thỏ bắt nạt thỏ gần hang</li>
+        <li>Lời tỏ tình không thể từ chối</li>
+        <li>All in love</li>
+        <li>Anh sẽ đợi em trong hồi ức</li>
+        <li>Năm tháng bên cạnh Hứa tiên sinh</li>
+        <li>Nếu mùa hạ năm ấy em không gặp anh</li>
+        <li>Bác sĩ Bạch đã lâu không gặp</li>
+        <li>Trở về trước khi bị cô lập</li>
+        <li>Tôi bị nam chính cao lãnh coi trọng rồi</li>
+        <li>Nam thành chờ trăng về</li>
+        <li>Bên nhau trọn đời</li>
+        <li>Tuổi xuân của em, tòa thành của anh</li>
+        <li>Nhiệt độ cơ thể của ác ma</li>
+        <li>Ngày ấy</li>
+        <li>Và cậu bước đến</li>
+        <li>Như em hằng mong</li>
+        <li>Em về cùng ngày nắng</li>
+        <li>Tôi là tình đầu đã chết của anh</li>
+        <li>Làm nũng trong lòng anh</li>
+        <li>Túi nhỏ bên ngực trái</li>
+        <li>Chiếc bật lửa và váy công chúa</li>
+        <li>Cô ấy vừa có tiền, vừa có anh ấy</li>
+        <li>Khi học bá xuyên thành tiểu thư IQ thấp</li>
+        <li>Kẹo nổ xoài sầu riêng</li>
+        <li>Nhớ em</li>
+        <li>Chiều em đến đau tim</li>
+        <li>Dược ngọt</li>
+        <li>Hàng ngày nuông chiều ánh trăng sáng</li>
+        <li>Đông ấm</li>
+        <li>Phùng thanh</li>
+        <li>Nhật kí nuôi dưỡng nam phụ</li>
+        <li>Yêu anh phụ hồ sát vách</li>
+        <li>Hạ chí chưa đến</li>
+        <li>Hồ ly bán kẹo đường</li>
+        <li>Vụng trộm không thể giấu</li>
+        <li>Tôi mộng giữa ban ngày</li>
+        <li>Bí mật tình yêu phố Angel</li>
+        <li>Chết! Sập bẫy rồi.</li>
+        <li>Anh không thích thế giới này anh chỉ thích em</li>
+        <li>Yêu em từ cái nhìn đầu tiên</li>
+        <li>Trúc mã tương thanh mai</li>
+        <li>Thống ngưỡng</li>
+        <li>Thầm yêu: Quất sinh Hoài Nam</li>
+        <li>Từng đóa bọt sóng</li>
+        <li>Tình yêu pha lê</li>
+        <li>Mối tình đầu</li>
+        <li>Nhè nhẹ vào lòng anh</li>
+        <li>Gửi thời đơn thuần đẹp đẽ của chúng ta</li>
+        <li>Gửi thời thanh xuân ấm áp của chúng ta</li>
+        <li>Eo thon nhỏ</li>
+        <li>Khom lưng vì anh</li>
+        <li>Tiểu dạ khúc</li>
+        <li>Mê muội vì em</li>
+        <li>Lê hấp đường phèn</li>
+        <li>Xương rồng hoảng loạn</li>
+        <li>Xin chào, chàng trai của tôi</li>
+        <li>Điều tuyệt vời nhất của thanh xuân</li>
+        <li>Giả trai</li>
+        <li>Ngọt như mật</li>
+        <li>Ốc sên chạy</li>
+        <li>Trượt vỏ chuối, xuyên qua rồi!!!</li>
+        <li>Cô ấy rất đáng yêu</li>
+        <li>Nuôi dưỡng nhân vật phản diện</li>
+        <li>Nhật kí nuôi dưỡng nam phụ</li>
+        <li>Tiểu ôn nhu</li>
+        <li>Tiểu thanh mai</li>
+        <li>Sủng ái cả đời</li>
+        <li>Em cười gió khẽ thổi</li>
+        <li>Cùng với Châu Ngang</li>
+        <li>Tiểu tiên nữ của anh</li>
+        <li>Chiến dịch mùa hè</li>
+        <li>Nguyện anh cười khi đang độ tài hoa</li>
+        <li>Dã thú dưới váy em</li>
+        <li>Mỹ nhân nghi tu</li>
+        <li>Em thấy núi xanh</li>
+        <li>Nước cam có gas</li>
+        <li>Kẹo dẻo vị quýt</li>
+        <li>Chưa từng hẹn ước</li>
+        <li>Người ở bên tay trái tôi</li>
+        <li>Hoa nở giữa tháng năm cô đơn</li>
+        <li>Đã một thời thâm tình</li>
+        <li>Trao anh ánh dương ấm áp</li>
+        <li>Đừng nhìn anh đầu hàng</li>
+        <li>Gió nổi lên rồi</li>
+        <li>Xuyên thành quả tim nhỏ của nam phụ</li>
+        <li>Đáng yêu hơn cả đường</li>
+        <li>Mười bảy mùa hè ở Giang Nam</li>
+        <li>Quả ngọt năm tháng</li>
+    </ul>
+</fieldset>
+<fieldset><a href="https://www.tiktok.com/@_etori1012_/photo/7260679508632636673?is_from_webapp=1&sender_device=pc&web_id=7409875982108182023</a>
+"> xem ở đâyyyyyy
+</fieldset>
+
+<div class="about">
+  <div class="pacifico-regular"><p>Connect with me</div>
+  <div class="about-text">
+    <a href="https://www.facebook.com/phuong.thao.754970/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/etori1216/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@_etori1012_" target="_blank">Tiktok</a>
+  </div>
+</div>
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>I LIVE IN TAIWAN</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=LXGW+WenKai+TC&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background-color: #dfb0b0;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 20px;
+    font-family: "Happy Monkey", sans-serif;
+    color: #5a2429;
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-weight: 500;
+    font-size: 50px;
+    color: #5a2429;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.lxgw-wenkai-tc-regular {
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: 400;
+    font-size: 40px;
+    color: #ffffff;
+}
+.top-nav {
+  position: sticky;
+  top: 15px;
+  z-index: 999;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+  border: 2px solid #ffb9b3;
+}
+
+
+ a {
+  color: #de9393;
+  font-family: "Pacifico", cursive;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #ff7671;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-links a {
+  font-family: "Happy Monkey", sans-serif;
+  text-decoration: none;
+  color: white;
+  background: #ffb9b3;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background: #ff7671;
+  transform: translateY(-2px);
+}
+
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #de9393;
+}
+.header-bg {
+  background-color: #f6d7d7;
+  padding: 30px 0;
+  width: 100%;
+  animation: fadeInDown 1s ease;
+}
+
+.name-icon {
+    margin-bottom: 5px;
+}
+
+.name-text {
+    color: black;
+    font-size: 1.5em;
+    font-family: "Happy Monkey", sans-serif;
+}
+#clock {
+  margin: 15px auto;
+  font-size: 28px;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.about {
+  background: #fbeaea;
+  padding: 30px;
+  margin: 30px auto;
+  width: 85%;
+  border-radius: 20px;
+}
+
+.about-text {
+  font-family: "LXGW WenKai TC", cursive;
+  font-size: 22px;
+  line-height: 1.8;
+}
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;     
+  justify-content: center; 
+  gap: 20px;          
+  padding: 20px;
+}
+
+.image-gallery figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  width: 180px;        
+}
+.about-img {
+  width: 100%;
+  height: 200px;    
+  object-fit: cover; 
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.about-img:hover {
+  transform: translateY(-5px); 
+}
+figcaption {
+  margin-top: 10px;
+  font-family: "Happy Monkey", sans-serif;
+  color: #de9393;
+  font-size: 14px;
+  font-weight: bold;
+}
+.footer {
+  margin-top: auto;
+  padding: 15px;
+  background: #f6d7d7;
+  font-family: "Happy Monkey", sans-serif;
+  color: #555;
+}
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #fbeaea;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);}
+  .nav-logo a {
+  color: #de9393;        
+  text-decoration: none;
+  font-family: "Pacifico", cursive;
+}  
+</style>
+</head>
+
+<body>
+
+<nav class="top-nav">
+  <div class="nav-logo"><a href='/'>🌸 PHUONG THAO</a></div>
+
+  <div class="nav-links" id="navLinks">
+       <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+  </div>
+
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+
+<div class="center-block name-icon">
+    <p class="name-text"><b>
+  ૮₍´˶• . • ⑅ ₎ა<br>
+  ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+</p>
+</div>
+<div class="center-block header-bg">
+<div class="pacifico-regular">PHƯƠNG THẢO </div>
+ <div class="lxgw-wenkai-tc-regular">芳草</div>
+</div>
+<h2 style="color:#ffb9b3;"> TIME</h2>
+<div id="clock"></div>
+<div class="about image-gallery">
+  <figure>
+    <img src="images/3e6441032f25887bd134.jpg" class="about-img">
+    <figcaption>High school graduation</figcaption>
+  </figure>
+  <figure>
+    <img src="images/2f81e1e4bbc21c9c45d3.jpg" class="about-img">
+    <figcaption>Photobooth</figcaption>
+  </figure>
+  <figure>
+    <img src="images/3362046551070698287.jpg" class="about-img">
+    <figcaption>Taiwan</figcaption>
+  </figure>
+  <figure>
+    <img src="images/3188194659520944948.jpg" class="about-img">
+    <figcaption>Yzu</figcaption>
+  </figure>
+  <figure>
+    <img src="images/440140709863930275.jpg" class="about-img">
+    <figcaption>My friends</figcaption>
+  </figure>
+</div>
+
+<div class="about">
+  <div class="pacifico-regular">About me </div>
+  <p class="about-text">
+    Name: Sherry<br>
+Age: 19<br>
+Birthday: 16/12/2006<br>
+Nationality: Viet Nam<br>
+Sex: Female<br>
+School: Yuanze University<br>
+Major: Information Management<br>
+  </p>
+</div>
+
+<div class="about">
+  <div class="pacifico-regular">Connect with me </div>
+  <p class="about-text">
+
+    <a href="https://www.facebook.com/phuong.thao.754970/">Facebook</a>
+    <a href="https://www.instagram.com/etori1216/">Instagram</a>
+    <a href="https://www.tiktok.com/@_etori1012_?is_from_webapp=1&sender_device=pc">Tiktok</a>
+  </div>
+</div>
+<img src="images/3246239361924588380.jpg" >
+<footer class="footer">
+  © 2025 Phuong Thao ｜ Living in Taiwan 🌸
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+function updateClock() {
+  const now = new Date();
+  document.getElementById("clock").innerText =
+    now.toLocaleTimeString("zh-TW");
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>

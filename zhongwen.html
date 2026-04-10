@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>be đang yêu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ea6e85;
+    margin: 0;
+    padding: 0;
+    color: #5a2429;
+    font-size: 18px; 
+    line-height: 1.6; 
+}
+
+/* --- Navigation --- */
+.top-nav {
+    position: sticky;
+    top: 15px;
+    z-index: 999;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+    border: 2px solid #ffb9b3;
+}
+
+.nav-logo a {
+    color: #de9393;
+    font-family: "Pacifico", cursive;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-links a {
+    font-family: "Happy Monkey", sans-serif;
+    text-decoration: none;
+    color: white !important;
+    background: #ffb9b3;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: #ff7671;
+    transform: translateY(-2px);
+}
+
+.menu-icon {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #de9393;
+}
+
+/* --- Header & Typography --- */
+.center-block { text-align: center; margin: 0 auto; }
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-size: 50px;
+    color: #ffd1dd;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.lxgw-wenkai-tc-regular {
+    font-family: "LXGW WenKai TC", cursive;
+    font-size: 40px;
+    color: #ffffff;
+}
+.header-bg {
+    background-color: #f8b7b8;
+    padding: 30px 0;
+    width: 100%;
+}
+
+/* --- Containers --- */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+fieldset {
+    width: 90%;
+    max-width: 800px;
+    border: 2px solid #ff7671;
+    border-radius: 15px;
+    padding: 20px;
+    background: linear-gradient(to right, #ffe3e3, #ffd6eb);
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* --- Table --- */
+table {
+    width: 100%; 
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+    background-color: #fff;
+}
+th { background-color: #ffe3e3; }
+
+/* --- Images --- */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+#fig {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#fig:hover { transform: scale(1.05); }
+
+/* --- Mobile Menu Responsive --- */
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #fbeaea;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        display: none;
+    }
+    .nav-links.show { display: flex; }
+    .nav-links a {
+        color: #de9393 !important;
+        background: white;
+        border: 1px solid #ffb9b3;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="center-block header-bg" style="margin-top: 20px;">
+    <div class="pacifico-regular">SELF-STUDY CHINESE</div>
+    <div class="lxgw-wenkai-tc-regular">自己練習中文</div>
+</div>
+
+<fieldset>
+    除了上課聽老師講課以外，我們也需要有自學的意識
+</fieldset>
+
+<fieldset class="menu">
+    <a href="#intro" style="margin: 0 10px; text-decoration: none; font-weight: bold; color: #5a2429;">課本</a>
+    <a href="#type" style="margin: 0 10px; text-decoration: none; font-weight: bold; color: #5a2429;">APP</a>
+    <a href="#content" style="margin: 0 10px; text-decoration: none; font-weight: bold; color: #5a2429;">練習網站</a>
+    <a href="#structure" style="margin: 0 10px; text-decoration: none; font-weight: bold; color: #5a2429;">練習考試</a>
+    <a href="#reason" style="margin: 0 10px; text-decoration: none; font-weight: bold; color: #5a2429;">考試報名</a>
+    <a href="#pros" style="margin: 0 10px; text-decoration: none; font-weight: bold; color: #5a2429;">下載Vocabulary</a>
+</fieldset>
+
+<div class="container">
+    <h2 id="intro" style="color: #ff7671; text-align: center;">我們學中文使用的課本：《時代華語》</h2>
+    <img id="fig" src="images/huayu1.jpg" width="300">
+</div>
+
+<div class="container" id="type">
+    <h2 style="color: #ff7671; text-align: center;">我用來學中文的APP</h2>
+    <div style="overflow-x: auto;">
+        <table>
+            <tr>
+                <th>App</th>
+                <th>圖片</th>
+                <th>簡單介紹</th>
+                <th>連結</th>
+            </tr>
+            <tr>
+                <td>HelloChinese</td>
+                <td><img src="images/z.png" width="50"></td>
+                <td>可以學聽、說、讀、寫，支援繁體中文</td>
+                <td><a href="https://www.hellochinese.cc" target="_blank">查看</a></td>
+            </tr>
+            <tr>
+                <td>ChineseSkill</td>
+                <td><img src="images/a.png" width="50"></td>
+                <td>用遊戲學中文，也有繁體中文</td>
+                <td><a href="https://www.chineseskill.com" target="_blank">查看</a></td>
+            </tr>
+            <tr>
+                <td>Hey Chinese</td>
+                <td><img src="images/b.png" width="50"></td>
+                <td>可以學 聽、說、讀、寫</td>
+                <td><a href="https://play.google.com/store/apps/details?id=duyleo.imagechineselearning" target="_blank">查看</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="container" id="content">
+    <h2 style="color: #ff7671; text-align: center;">練習中文的網站</h2>
+    <ul style="list-style: none; padding: 0; text-align: center;">
+        <li style="margin: 10px 0;"><a href="https://tocfl.edu.tw/tocfl/index.php/exam/test/page/1" style="color: #ff3366; text-decoration: none; font-weight: bold;">🖊️ 華語文能力測驗 免費下載試題</a></li>
+        <li style="margin: 10px 0;"><a href="https://tocfl.edu.tw/tocfl/index.php/exam/study_resources" style="color: #ff3366; text-decoration: none; font-weight: bold;">🖊️ 學習資源</a></li>
+    </ul>
+</div>
+
+<div class="container" id="structure">
+    <h2 style="color: #ff7671; text-align: center;">練習考試</h2>
+    <a href="https://cbt.sc-top.org.tw/sctopj/"><img src="images/zz.png" class="responsive-img"></a>
+    <p>網址：<a href="https://cbt.sc-top.org.tw/sctopj/">https://cbt.sc-top.org.tw/sctopj/</a></p>
+</div>
+
+<div class="container" id="reason">
+    <h2 style="color: #ff7671; text-align: center;">考試報名</h2>
+    <a href="https://tocfl.edu.tw/tocfl/"><img src="images/zzz.png" class="responsive-img"></a>
+    <p>網址：<a href="https://tocfl.edu.tw/tocfl/">https://tocfl.edu.tw/tocfl/</a></p>
+</div>
+
+<div class="container" id="pros">
+    <h2 style="color: #ff7671; text-align: center;"><a href="images/CCCC_Vocabulary_2022.xls" style="text-decoration: none; color: inherit;">📂 下載 Vocabulary</a></h2>
+</div>
+
+<fieldset>
+    學弟妹可以來找我
+    <div class="center-block" style="padding-top: 10px;">
+        <a href="https://www.facebook.com/phuong.thao.754970/" target="_blank">
+            <img src="images/fb.png" alt="Facebook" width="50" style="border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        </a>
+    </div>
+</fieldset>
+
+<script>
+function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

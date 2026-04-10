@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>drink</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+body {
+    background-color: #dfb0b0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20px;
+    font-family: "Happy Monkey", sans-serif;
+    color: #5a2429;
+}
+
+/* --- Navigation --- */
+.top-nav {
+    position: sticky;
+    top: 15px;
+    z-index: 999;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+    border: 2px solid #ffb9b3;
+}
+
+.nav-logo a {
+    color: #de9393;
+    font-family: "Pacifico", cursive;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-links a {
+    font-family: "Happy Monkey", sans-serif;
+    text-decoration: none;
+    color: white !important;
+    background: #ffb9b3;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: #ff7671;
+    transform: translateY(-2px);
+}
+
+.menu-icon {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #de9393;
+}
+
+/* --- Content Styling --- */
+.header-bg {
+    background-color: #f8b7b8;
+    padding: 30px 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.pacifico-regular {
+    font-family: "Pacifico", cursive;
+    font-size: 50px;
+    color: #5a2429;
+}
+
+.container {
+    width: 95%;
+    margin: 10px auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+fieldset {
+    width: 90%;
+    max-width: 800px;
+    border: 2px solid #ff7671;
+    border-radius: 15px;
+    padding: 25px;
+    background: linear-gradient(to right, #ffe3e3, #ffd6eb);
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* --- Link Cards --- */
+.link-card {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.link-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ff3366;
+    margin-bottom: 5px;
+}
+
+fieldset a {
+    text-decoration: none;
+    color: #5a2429;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+fieldset a:hover {
+    color: #ff7671;
+}
+
+.simple-h2 {
+    font-size: 22px;
+    margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #fbeaea;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        display: none;
+    }
+    .nav-links.show { display: flex; }
+    .nav-links a {
+        color: #de9393 !important;
+        background: white;
+        border: 1px solid #ffb9b3;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="center-block name-icon" style="margin-top: 20px;">
+    <p class="name-text"><b>
+        ૮₍´˶• . • ⑅ ₎ა<br>
+        ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+    </b></p>
+</div>
+
+<div class="header-bg">
+    <div class="pacifico-regular">FILES & RESOURCES</div>
+</div>
+
+<fieldset>Dưới đây là những file mình sưu tầm được</fieldset>
+
+<fieldset>
+    <p>時代華語教學影片 (Video dạy giáo trình thời đại)</p>
+    <div class="container">
+        <h2 class="simple-h2">
+            <a href="https://sites.google.com/clc.tku.edu.tw/modernchinese-official/" target="_blank" class="link-card">
+                <div class="link-title">時代華語 Modern Chinese - Official Site</div>
+                <small style="color:#999;">sites.google.com</small>
+            </a>
+        </h2>
+    </div>
+</fieldset>
+
+<fieldset>
+    <p>當代中文課程 1-6 PDF</p>
+    <div class="container">
+        <h2 class="simple-h2">
+            <a href="images/當代中文課程_1-6_PDF.zip" target="_blank">📥 Tải xuống 當代中文課程 1-6 PDF</a>
+        </h2>
+    </div>
+</fieldset>
+
+<fieldset>
+    <p>TẢI FILE TỪ VỰNG TRUNG-ANH Ở ĐÂY</p>
+    <div class="container">
+        <h2 class="simple-h2">
+            <a href="images/CCCC_Vocabulary_2022.xls" target="_blank">📊 下載 Vocabulary (Excel)</a>
+        </h2>
+    </div>
+</fieldset>
+
+<fieldset>
+    <p>Xem thêm tài liệu trên Google Drive</p>
+    <div class="container">
+        <h2 class="simple-h2" style="margin-bottom: 15px;">
+            <a href="https://drive.google.com/drive/folders/1u6PRZai3uB60uc3NsgCqWQmN_zf9ySua?usp=sharing" target="_blank">
+                📂 Ấn vào đây để xem toàn bộ
+            </a>
+        </h2>
+        <a href="https://drive.google.com/drive/folders/1u6PRZai3uB60uc3NsgCqWQmN_zf9ySua?usp=sharing" target="_blank">
+            <img src="images/t1.png" style="max-width: 100%; width: 350px; border-radius: 8px;">
+        </a>
+    </div>
+</fieldset>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>PHÂN LOẠI LIST TRUYỆN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #dfb0b0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+        }
+
+        /* --- Navigation --- */
+        .top-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 999;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+            border: 2px solid #ffb9b3;
+        }
+
+        .nav-logo a { color: #de9393; font-family: "Pacifico", cursive; font-size: 20px; text-decoration: none; }
+        .nav-links { display: flex; gap: 12px; }
+        .nav-links a { font-family: "Happy Monkey", sans-serif; text-decoration: none; color: white !important; background: #ffb9b3; padding: 8px 14px; border-radius: 20px; font-size: 13px; transition: 0.3s; }
+        .nav-links a:hover { background: #ff7671; transform: translateY(-2px); }
+
+        /* --- Phân loại Category --- */
+        .category-title {
+            background-color: #ff7671;
+            color: white;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin: 30px 0 10px;
+            font-family: "Pacifico", cursive;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            width: 95%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        fieldset {
+            border: 2px solid #ff7671;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        fieldset:hover {
+            transform: translateY(-5px);
+            background: white;
+        }
+
+        fieldset a {
+            text-decoration: none;
+            color: #5a2429;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .menu-icon { display: none; font-size: 26px; cursor: pointer; color: #de9393; }
+
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links { position: absolute; top: 70px; right: 20px; background: #fbeaea; flex-direction: column; display: none; padding: 15px; border-radius: 20px; }
+            .nav-links.show { display: flex; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="pacifico-regular" style="margin-top: 30px; color: white;">List Truyện Sưu Tầm</div>
+
+<div class="category-title">🎨 Truyện Tranh (Comic)</div>
+<div class="grid-container">
+    <fieldset><a href="list1.html">✨ TRUYỆN TRANH TỔNG TÀI</a></fieldset>
+    <fieldset><a href="list6.html">✨ NGÔN TÌNH THANH XUÂN VƯỜN TRƯỜNG</a></fieldset>
+    <fieldset><a href="list7.html">✨ TRUYỆN TRANH ÂU CỔ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7144327944696122650">✨ NGÔN TÌNH XUYÊN KHÔNG</a></fieldset>
+</div>
+
+<div class="category-title">📖 Tiểu Thuyết Ngôn Tình</div>
+<div class="grid-container">
+    <fieldset><a href="list2.html">✨ TIỂU THUYẾT KHÓC HẾT NƯỚC MẮT</a></fieldset>
+    <fieldset><a href="list3.html">✨ TIỂU THUYẾT NỮ CƯỜNG</a></fieldset>
+    <fieldset><a href="list8.html">✨ THANH XUÂN VƯỜN TRƯỜNG</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7053225407302176026">✨ CÁN BỘ / QUÂN NHÂN</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/music/List-showbiz-của-Ri-7169500118125677338">✨ NGÔN TÌNH SHOWBIZ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/music/List-ngôn-tình-có-hôn-ước-7172464188193786651">✨ NGÔN TÌNH CÓ HÔN ƯỚC</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7173157809457007898">✨ NGÔN TÌNH NGƯỢC LUYẾN</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/music/Nma-chính-cảnh-sát-của-Ri-7169407806695688986">✨ NAM CHÍNH LÀ CẢNH SÁT</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7169461216300076314">✨ NAM CHÍNH LÀ GIÁO SƯ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/music/Nam-chính-độc-miệng-của-Ri-7168390888875330331">✨ NAM CHÍNH ĐỘC MIỆNG</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/music/tiểu-thuyết-ngôn-tình-nam9-badboy-của-Ri-7152131292774419226">✨ NAM CHÍNH BAD BOY</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7157491432675151131">✨ NGƯỢC NAM CHÍNH</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7157229389233556763">✨ CƯỚI TRƯỚC YÊU SAU (CỔ ĐẠI)</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7182395967172283653">✨ NGÔN TÌNH CHỮA LÀNH</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/music/Ngôn-tình-hào-môn-của-Ri-7153131258023856922">✨ HÀO MÔN THẾ GIA</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7145401211854933275">✨ NAM CHÍNH LÀ GAME THỦ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7145225509427776794">✨ NGÔN TÌNH MẠT THẾ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7186538144030805253">✨ NGÔN TÌNH NGỌT SỦNG</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7122443847984041243">✨ NGÔN TÌNH TRUY THÊ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7120590212044016923">✨ NAM CHÍNH BỆNH TÂM LÝ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7120216261992254746">✨ NỮ CHÍNH BỆNH TÂM LÝ</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7182896877111708934">✨ CHỊ EM (EM MUỐN LÁI CHỊ)</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/music/Ngôn-tình-gương-vỡ-lại-lành-của-ri-7173967770216401690">✨ GƯƠNG VỠ LẠI LÀNH</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7109839138542701850">✨ NGÔN TÌNH LINH DỊ</a></fieldset>
+</div>
+
+<div class="category-title">🌈 Đam Mỹ / BL</div>
+<div class="grid-container">
+    <fieldset><a href="list4.html">✨ TRUYỆN BL THÚ NHÂN</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7097927164611349786">✨ TRUYỆN TRANH BL ABO</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7170321796535717147">✨ TRUYỆN TRANH BL CỔ ĐẠI</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7133946835462343962">✨ TIỂU THUYẾT ĐAM MỸ TRỌNG SINH</a></fieldset>
+    <fieldset><a href="https://www.tiktok.com/@_etori1012_/video/7122829500685061403">✨ ĐAM MỸ THỤ BỊ BỆNH TIM</a></fieldset>
+</div>
+
+<footer style="margin-top: 50px; padding: 20px; color: white;">🌸 Chúc bạn tìm được bộ truyện ưng ý! 🌸</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

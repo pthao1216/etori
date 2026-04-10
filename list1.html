@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>LIST TRUYỆN TỔNG TÀI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #dfb0b0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+        }
+
+        /* --- Navigation --- */
+        .top-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 999;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+            border: 2px solid #ffb9b3;
+        }
+
+        .nav-logo a {
+            color: #de9393;
+            font-family: "Pacifico", cursive;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-family: "Happy Monkey", sans-serif;
+            text-decoration: none;
+            color: white !important;
+            background: #ffb9b3;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #ff7671;
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #de9393;
+        }
+
+        /* --- Header --- */
+        .name-text {
+            color: white;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* --- Fieldset & List --- */
+        fieldset {
+            width: 95%;
+            max-width: 1000px;
+            border: 3px double #ff7671;
+            border-radius: 30px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(141, 110, 99, 0.2);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        fieldset::before {
+            content: "🌸 LIST TIỂU THUYẾT TỔNG TÀI 🌸";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff7671;
+            color: white;
+            padding: 5px 25px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+        }/* Style cho link trong fieldset (Video) */
+fieldset a {
+    text-decoration: none;
+    color: #5a2429; /* Màu nâu đỏ đồng bộ */
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+fieldset a:hover {
+    color: #ff7671; /* Đổi màu hồng khi di chuột */
+    transform: scale(1.02);
+}
+
+/* Style cho các nút Connect (Facebook, Instagram...) */
+.about-text a {
+    display: inline-block;
+    background: #ffb9b3;
+    color: white !important;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.about-text a:hover {
+    background: #ff7671;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(222,147,147,0.3);
+}
+
+        .list-ngoi-sao {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            /* Chia cột cho danh sách */
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        .list-ngoi-sao li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+            break-inside: avoid; /* Không để 1 dòng bị cắt đôi giữa 2 cột */
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .list-ngoi-sao li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 1px;
+        }
+
+        .list-ngoi-sao li:hover {
+            color: #ff7671;
+            transform: translateX(8px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #fbeaea;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 20px;
+                display: none;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a {
+                color: #de9393 !important;
+                background: white;
+                border: 1px solid #ffb9b3;
+            }
+            .list-ngoi-sao {
+                column-count: 1; /* Trên mobile hiện 1 cột cho dễ đọc */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="name-icon">
+    <p class="name-text"><b>
+        ૮₍´˶• . • ⑅ ₎ა<br>
+        ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+    </b></p>
+</div>
+
+<fieldset>
+    <ul class="list-ngoi-sao">
+     <li>Dạ sủng tuyệt sắc kiều thê</li>
+<li>Khóa chặt đôi môi</li>
+<li>Tổng tài tại thương</li>
+<li>Đưa ông xã quốc dân về nhà</li>
+<li>Chọc giận chủ tịch tổng tài (p1)</li>
+<li>Chọc giận chủ tịch tổng tài (p2)</li>
+<li>Nhập cốt noãn hôn</li>
+<li>Tôi bị tổng tài anti</li>
+<li>Hotboy quốc dân là nữ</li>
+<li>Danh môn chí ái</li>
+<li>Tiểu thư đỏng đảnh</li>
+<li>Thiên tài khốc bảo: tổng tài cuồng sủng thê</li>
+<li>Ảnh hậu lão bà không được chạy</li>
+<li>Bắt cóc mami đưa về nhà</li>
+<li>Tiểu tình nhân ngọt ngào</li>
+<li>Đế thiếu đừng mạnh quá</li>
+<li>Độc sủng tuyệt sắc kiều thê</li>
+<li>Hai cách tìm gặp người yêu</li>
+<li>Daddy của tôi bị ooc rồi</li>
+<li>Bá đạo tổng tài muốn ôm ôm</li>
+<li>Băng sơn tổng tài cường sủng thê</li>
+<li>Sủng thê thành nghiện: bảo bối của lục tổng</li>
+<li>Ông chồng hoàn mỹ</li>
+<li>Đế thiếu sủng thê</li>
+<li>Cô vợ hợp đồng bỏ trốn của tổng giám đốc</li>
+<li>Manh bảo đột kích</li>
+<li>Thiên giá sủng thê</li>
+<li>Trai hư sinh tinh: cô vợ bỏ trốn</li>
+<li>Lục tổng, vợ ngài lại lên hotseach rồi</li>
+<li>Cô vợ mù thế thân</li>
+<li>Oan gia ngọt ngào</li>
+<li>Tổng tài lạnh lùng cuồng sủng vợ</li>
+<li>Mẹ đơn thân cực phẩm</li>
+<li>Tổng tài daddy siêu quyền lực</li>
+<li>Đại tiểu thư không có ý đồ xấu đâu</li>
+<li>Ác ma đừng hôn tôi</li>
+<li>Manh thê nghịch ngợm</li>
+<li>Bác sĩ Sở cũng muốn yêu</li>
+<li>Đối kháng tâm hoa chủ thượng</li>
+<li>Cô vợ cuồng bạo</li>
+<li>Nắng mai không đẹp bằng em</li>
+<li>Cô vợ ngọt ngào Hạ Tiểu Tinh</li>
+<li>Danh môn thiên hậu</li>
+<li>Bá đạo tổng tài yêu tôi</li>
+<li>Không gian trùng sinh: Phu nhân hào môn không dễ đụng</li>
+<li>Người tình của riêng tôi</li>
+<li>Cực phẩm manh nương thật uy vũ v5</li>
+<li>Thiên kim nhàn thê</li>
+<li>Ngàn vạn bẫy tình của bạn trai báo hệ</li>
+<li>Bảo bối bí mật của vương tước</li>
+<li>Thế giới đệ nhất cự tinh</li>
+<li>Hào môn tiểu lão bà</li>
+<li>Thuần tinh nha đầu hỏa lạt lạt</li>
+<li>Người phụ nữ bị bỏ rơi</li>
+<li>Nam thần quốc dân bám lấy tôi</li>
+<li>Tổng tài theo đuổi vợ yêu: phu nhân đừng bỏ trốn</li>
+<li>Kế hoạch bỏ trốn của niên tiểu tiểu</li>
+<li>Nhất dạ nguyệt tình: cuồng hôn hào môn lão công</li>
+<li>Tiến độ chia tay 99%</li>
+<li>Manh thê đắt giá của tổng tài</li>
+<li>Cơ trưởng đại nhân nhẹ nhàng thôi</li>
+<li>Kế ước sủng hôn</li>
+<li>Chọc nhầm chủ tịch tổng tài</li>
+<li>Boss ca ca khó làm</li>
+<li>Phu nhân tài phiệt không dễ làm</li>
+<li>Đồ chơi trăm ngày của tổng tài</li>
+<li>Hào môn đệ nhất thịnh hôn</li>
+<li>Xin sẵn sàng phục vụ, Miêu Vương</li>
+<li>Take me out</li>
+<li>Ông xã khát máu: cô dâu gả nhầm</li>
+<li>Thiên kim lưu manh</li>
+<li>Minh tinh là huyết tộc</li>
+<li>Tình yêu bá đạo của ác ma</li>
+<li>Ông xã thú tính đêm đêm gợi tình</li>
+<li>Vách tường có nam thần</li>
+<li>Nhận vợ theo hương</li>
+<li>Boss lạnh lùng hãy buông tay</li>
+<li>Ông chồng bá đạo mau quỳ xuống</li>
+<li>Vạn tỉ ảnh hậu nghịch thiên</li>
+<li>Cấm luyến ngọt ngào: nhà thiết kế của ceo</li>
+<li>Một tờ kế ước</li>
+<li>Xin em hãy yêu anh thật lòng</li>
+<li>Nhà có cô vợ ác</li>
+<li>Nụ hôn của tổng tài</li>
+<li>Hôm nay tôi sẽ yêu ai đây?</li>
+<li>Cứu mạng! Bạn trai trong game của tôi thành tinh rồi</li>
+<li>Thứ mà thời gian nợ anh chính là em</li>
+<li>Hôn nhân bí mật: bảo bối thiên giá của tổng tài đại thúc</li>
+<li>Bảo bối ngây thơ của Tà thiếu</li>
+<li>Ngủ cùng tổng tài ác ma</li>
+<li>Khuôn mặt của cô là của tôi rồi</li>
+<li>Cẩm Hy love story</li>
+<li>Cô dâu gả thay của tổng tài</li>
+<li>Mạc thiếu bức hôn</li>
+<li>Kiều thê không ngoan</li>
+<li>Giáo sư tổng tài đi theo tôi</li>
+<li>Vợ yêu xuất xưởng không đạt tiêu chuẩn</li>
+<li>Cưng chiều em mãi</li>
+<li>Hào môn dạ sủng</li>
+<li>Chí mạng sủng thê: tổng tài nạp mạng đây</li>
+<li>Cô vợ chớp nhoáng đừng hòng thoát</li>
+<li>Dĩ ái vi danh</li>
+<li>Tiền hôn hậu ái</li>
+<li>Hôn bất do kỷ</li>
+<li>Trò chơi ác ma: dạy dỗ cô vợ tinh nghịch</li>
+<li>Mùa hè của tổng tài lạnh lùng</li>
+<li>Độc chiếm kiều thê</li>
+<li>Tấn công vợ yêu bất ngờ</li>
+<li>Tình đầu lần cuối</li>
+<li>Cô dâu bí mật</li>
+<li>Trai hư sinh tinh cô vợ bỏ trốn 2</li>
+<li>Trai trẻ mê nhập vai của nữ tổng tài</li>
+<li>Ảnh đế và công cháu đại nhân</li>
+<li>Boss khủng bố tấn công tôi</li>
+<li>Tôi siêu lắm tiền</li>
+<li>Nam thành chờ trăng về</li>
+<li>Đại lão gọi tôi là tiểu tổ tông</li>
+<li>Sự trả thù của nữ vương</li>
+<li>Lừa boss là bà mai</li>
+<li>Ảnh hậu cũng không bằng niệm thanh hoa</li>
+<li>Diêu Diêu yêu dấu, cuối cùng sủng được em rồi</li>
+<li>Bảo bối của lạo đại đã xuyên không trở về</li>
+<li>Ông xã đại nâhn siêu quyền lực</li>
+<li>Kết thúc nhất định sẽ có hậu</li>
+<li>Hào môn tịnh sủng: mua một tặng một</li>
+<li>Tổng tài lạnh lùng sủng mật tiểu manh thê</li>
+<li>Hôn nhân ấm áp tổng tài sủng vợ thành nghiện</li>
+<li>Người thừa kế duy nhất của Lãnh gia</li>
+<li>Cô vợ nhỏ bị mù của Hàn thiếu</li>
+<li>Vết cắm trí mạng</li>
+<li>Khế ước hào môn: cô vợ nhỏ lạnh lùng không đùa được đâu</li>
+<li>Tiểu bạch nam thần daddy</li>
+<li>Theo đuổi vợ yêu</li>
+<li>Vết cắn trí mạng</li>
+<li>Song bảo của tôi siêu quyền lực</li>
+<li>Lục tổng vợ ngài lại bỏ trốn rồi</li>
+<li>Trọng sinh hôn ấn nhẹ sủng thê</li>
+<li>Sủng mật bảo bối trăm tỷ của tổng tài</li>
+<li>Trò chơi nguy hiểm: Tình yêu của ác ma</li>
+<li>Nhất kiến chung tình: độc sủng tuyệt sắc kiều thê</li>
+<li>Vì tình yêu, vì thời gian</li>
+<li>Bạn trai tin đồn</li>
+<li>Bắt em về sủng cả đời</li>
+<li>Hào môn hôn đồ tựa cẩm</li>
+<li>Chiếm hữu khương tây</li>
+<li>Thiên tài song bảo: ngạo kiều vợ trước ôm về nhà</li>
+<li>Cố tổng sũng mật tiểu kiều thê</li>
+<li>Trọng sinh trở thành phu nhân tổng tài huyết tộc</li>
+<li>Kế hoạch công lược phúc hắc tổng tài</li>
+<li>Sủng em sủng tới tận cùng</li>
+<li>Thiên hệ đệ nhất sủng phi</li>
+<li>Năm daddy của tôi là đại lão</li>
+<li>Bản hợp đồng của tổng tài lạnh lùng</li>
+<li>Hôm nay từ chối Lục tiên sinh</li>
+<li>Lục tiên sinh hôm nay thế nào rồi</li>
+<li>Chồng cũ rực rỡ của tôi</li>
+<li>Mưu kế nhiều thì đã sao</li>
+<li>Tổng tài sủng thê đến vô cực</li>
+<li>Theo đuổi vợ yêu</li>
+<li>Boss thần bí sủng thê vô độ</li>
+<li>Dĩ hôn chi danh</li>
+<li>Sủng mật bảo bối của tổng tài hàng tỷ</li>
+<li>Không thể yêu em</li>
+<li>Thương tiên sinh, áo ghilê của anh lại rơi rồi</li>
+<li>Cô vợ bị câm của tổng tài Phú thiếu xin nhẹ một chút</li>
+<li>Giết chết tình yêu khi nó kịp tồn tại</li>
+<li>Cưng chiều vợ cũ. Vợ yêu đại nhân thật lạnh lùng</li>
+<li>Hôn nhân ấm áp 100 ngày: Tổng tài sủng vợ vô hạn</li>
+<li>Tổng tài vợ ngài lại bỏ trốn</li>
+<li>Tổng tài lừa hôn: độc sủng tiểu kiều thê</li>
+<li>Danh môn ấm hôn</li>
+<li>Dụ vợ về nhà chồng cũ phải thật ôn nhu</li>
+<li>Hãy làm điều đó sau khi kết hôn</li>
+<li>Chỉ thị đặc biệt của boss</li>
+<li>Cuộc hôn nhân hoàn hảo</li>
+<li>Tổng tài daddy đuổi tới rồi</li>
+<li>Cô vợ nhỏ nuông chiều quá thành ác</li>
+<li>Tổng tài thiên vị yêu mình ta</li>
+<li>Cô ấy ở trong tim tôi đã nhiều năm</li>
+<li>Vợ yêu, em đừng chạy</li>
+<li>Bảo bối của lão đại xuyên không trở về</li>
+<li>Bé Hamster của anh chồng quốc dân</li>
+<li>Hệt như hào quang gặp nắng gắt</li>
+<li>Cô vợ mang thai một tặng một</li>
+<li>Vợ yêu cưới trước sủng sau</li>
+<li>Nghịch lai chuyển sinh gặp lại tần tiên sinh</li>
+<li>Chọc tức vợ yêu mua một tặng một</li>
+<li>Trọng sinh trở lại: sủng nịnh độc nhất vô nhị</li>
+<li>Nữ chủ người đàn ông của bạn bị hỏng rồi</li>
+<li>Trọng sinh chi ức vạn ảnh hậu yếu thượng vị</li>
+<li>Cô ấy thật xinh đẹp</li>
+<li>Cuồng nhiệt boss, sủng thê xin kiềm chế</li>
+<li>Hào môn thịnh sủng</li>
+<li>Cô vợ ấm áp của Hạ thiếu</li>
+<li>Nam thần truy thê chỉ nam</li>
+<li>Đế thiếu ngọt sủng: manh thê sống lại không ngoan</li>
+<li>Nam thần manh bảo tận diệt</li>
+<li>Tổng tài truy thê: phu nhân đừng hòng trốn</li>
+<li>Phúc hắc thiếu gia trêu chọc tôi</li>
+<li>Kiều thê thái điềm, đế thiếu sủng thượng thiên</li>
+<li>Cưng chiều vợ cũ: lão bà đại nhân thật mê người</li>
+<li>Người vợ bí ẩn của tổng tài</li>
+<li>Cưng chiều vợ yêu</li>
+<li>Tổng tài kiêu ngạo vợ yêu em đừng chạy</li>
+<li>Vợ yêu của ác ma</li>
+<li>Vợ yêu gả nhầm của phúc hắc tổng tài</li>
+<li>Tổng tài hống hách yêu cô vợ ngọt ngào</li>
+<li>Vợ yêu không ngoan</li>
+<li>Ảnh đế thần bí trộm cưới: vợ yêu tới pk</li>
+<li>Tổng tài hai mặt sủng thê chỉ nam</li>
+<li>Từ chối kết hôn với đại gia: cô dâu bỏ trốn</li>
+<li>Băng sơn thủ tế</li>
+<li>Thiểm hôn kiều thê</li>
+<li>Vô địch song bảo bối</li>
+<li>Cho em muôn trượng hào quang</li>
+<li>Hợp đồng vợ ngọt ngào dẫn bóng chạy</li>
+<li>Nghiêm tuyển tiên thê</li>
+<li>Ngọt ngào uy vũ boss sủng đến nghiện</li>
+<li>Thịnh thế hoa sủng: tôi bị bắt làm tù binh</li>
+<li>Gả cho tình cũ làm lão bà</li>
+<li>Phụng tử thành hôn: tiên thê không được trốn</li>
+<li>Xuyên nhanh nữ phụ xin bình tĩnh</li>
+<li>Nhật kí mưu sinh của tra nữ</li>
+<li>Manh bảo của tôi là liêu cơ</li>
+<li>Diêu Diêu yêu dấu, cuối cùng cũng sủng được em</li>
+<li>Ảnh đế làm loạn đòi ly hôn (đam)</li>
+<li>Người thừa kế giá đáo: hiệu thảo làm loạn đủ chưa?</li>
+<li>Đế thiếu chuyên sủng hắc đạo thê</li>
+<li>Thú cưng độc quyền của boss</li>
+<li>Cố thiếu sủng thê đến ngộ</li>
+<li>Nhất chỉ sủng hôn</li>
+<li>Chẩm thượng sủng hôn</li>
+<li>Tư sủng cục cưng bảo bối</li>
+<li>Tổng tài thịnh sủng tiền thê</li>
+<li>Sủng hôn lai tập</li>
+<li>Trọng sinh siêu sao Lăng thiếu sủng nghiện</li>
+<li>Điều ước sủng ái bất bình đẳng</li>
+<li>Ác ma chuyên sủng: cô vợ ngọt ngào của tổng tài</li>
+<li>Độc sủng kiều thê của bá đạo tổng tài</li>
+<li>Trí mệnh sủng thê: tổng tài mau nạp mạng</li>
+<li>Bà Xã Quyến Rũ Trí Mạng: Tổng Tài Muốn Tái Hôn</li>
+<li>Satan Tổng Tài, Đừng Yêu Tôi</li>
+<li>Nghìn lẻ một đêm với tổng tài</li>
+<li>Không được lâu tổng tài đại nhân</li>
+<li>Tổng tài ma cà rồng tha cho tôi</li>
+<li>Tổng tài đừng trả hàng nha</li>
+<li>Tổng tài yêu chưa đủ</li>
+<li>Tổng tài đã cưới em</li>
+<li>101 phương pháp của tổng tài</li>
+<li>Ma Vương Ngạo Kiều Tổng Tài Không Thể Chọc</li>
+<li>Phúc Hắc Tổng Tài Đừng Tới Đây</li>
+<li>Tình Nhân Khế Ước Của Tổng Tài</li>
+<li>Yêu nghiệt tổng tài thích tự mãn</li>
+<li>Tổng Tài Giáo Sư Đi Theo Tôi</li>
+<li>Tổng Tài Bá Đạo Là Gay</li>
+<li>Ẩn hôn mật ái: Cô vợ nhỏ của tổng tài tàn nhẫn</li>
+<li>Hôn Ước Hào Môn: Phu Nhân Tổng Tài Có Chút Điên</li>
+<li>Không Gả Cho Tổng Tài, Gả Cho Người Hầu</li>
+<li>Tần Tưởng Thịnh Gả Cho Anh</li>
+<li>Tổng Giám Đốc Bạc Tình Yêu Thương Ta</li>
+<li>Tiểu Bạch Điềm Thê Của Long Thiếu</li>
+<li>Tai tiếng thị phi</li>
+<li>Bà xã tôi đã trở lại</li>
+<li>Trọng sinh thiên kim quốc dân</li>
+<li>Mai Nữ Đồng Tiểu Nộ</li>
+<li>Nhật Ký Báo Thù Của Thiên Kim Hai Mặt</li>
+<li>Rơi Vào Tình Yêu Với Bá Đạo Tổng Tài</li>
+<li>Boss Của Tôi Là Đại Thần</li>
+<li>Bạn Trai Điều Khiển Giấc Mơ</li>
+<li>Tịch Nhan Hoa Nở Chỉ Vì Em</li>
+<li>Tôi và bốn vị cố tiên sinh</li>
+<li>Lục Tiên Sinh Đừng Chọc Vào Tôi</li>
+<li>Hai cách tìm gặp người yêu</li>
+<li>Tân Nương Thế Thân</li>
+<li>Siêu Sao Độc Chiếm Của Ta</li>
+<li>Cưng Chiều Ái Thê Hư Hỏng</li>
+<li>Độc Nhất Sủng Ái Của Thủ Tịch</li>
+<li>Vợ Yêu Là Báu Vật</li>
+<li>Bà Xã Tôi Đã Trở Lại</li>
+<li>Cô Thỏ Của Chủ Tịch Sói</li>
+<li>Mami Mau Chạy - Daddy Đuổi Tới Rồi</li>
+<li>1000 Tư Thế Cưa Đổ Tổng Tài</li>
+<li>Cấm tình điềm mật: Đế thiếu hào môn trêu tận cửa</li>
+<li>Nhật Ký Dạy Dỗ Của Gia Tộc Đáng Yêu</li>
+<li>Tổng Tài Hàng Tỉ Quấn Lấy Tôi: Hôn Ước Giá Trên Trời</li>
+<li>Nam Thần Luôn Muốn Chọc Ghẹo Ta</li>
+<li>Lại bị bạn trai cũ nhắm trúng rồi (đam)</li>
+<li>Liệp ái cuồng tưởng khúc</li>
+<li>Mạc Thiếu Bức Hôn: Vợ Mới Khó Chống Đỡ</li>
+<li>Chỉ nhiễm thành hôn: đại thúc sủng vợ vô độ</li>
+<li>Cô Vợ Nóng Bỏng</li>
+<li>Dĩ ái vi danh</li>
+<li>Hắn nói tôi là hắc liên hoa (đam)</li>
+<li>Sắp bị ăn mất rồi (đam)</li>
+<li>Trọng sinh để trả thù</li>
+<li>Trọng sinh quý thê chi phục thù hoa lệ</li>
+<li>Hành Trình Thuần Hóa Vợ Nhỏ Của Tổng Tài</li>
+<li>Tổng Tài Truy Thê: Phu Nhân Lại Chạy Trốn</li>
+<li>Mùa hè của tổng tài lạnh lùng</li>
+<li>Tiền hôn hậu ái</li> 
+    </ul>
+</fieldset>
+<fieldset>
+    <a href="https://www.tiktok.com/@_etori1012_/video/7106355188054658330" target="_blank">
+        🎬 Xem video TikTok của mình tại đây
+    </a>
+</fieldset>
+
+<div class="about">
+  <div class="pacifico-regular"><p>Connect with me</div>
+  <div class="about-text">
+    <a href="https://www.facebook.com/phuong.thao.754970/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/etori1216/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@_etori1012_" target="_blank">Tiktok</a>
+  </div>
+</div>
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

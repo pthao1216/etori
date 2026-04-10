@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>LIST TRUYỆN TỔNG TÀI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Happy+Monkey&family=LXGW+WenKai+TC&family=Noto+Sans+JP:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #dfb0b0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 20px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+        }
+
+        /* --- Navigation --- */
+        .top-nav {
+            position: sticky;
+            top: 15px;
+            z-index: 999;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(222,147,147,0.3);
+            border: 2px solid #ffb9b3;
+        }
+
+        .nav-logo a {
+            color: #de9393;
+            font-family: "Pacifico", cursive;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-family: "Happy Monkey", sans-serif;
+            text-decoration: none;
+            color: white !important;
+            background: #ffb9b3;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #ff7671;
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: #de9393;
+        }
+
+        /* --- Header --- */
+        .name-text {
+            color: white;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* --- Fieldset & List --- */
+        fieldset {
+            width: 95%;
+            max-width: 1000px;
+            border: 3px double #ff7671;
+            border-radius: 30px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(141, 110, 99, 0.2);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        fieldset::before {
+            content: "🌸 LIST TRUYỆN TRANH BL  🌸";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff7671;
+            color: white;
+            padding: 5px 25px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+        }/* Style cho link trong fieldset (Video) */
+fieldset a {
+    text-decoration: none;
+    color: #5a2429; /* Màu nâu đỏ đồng bộ */
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+fieldset a:hover {
+    color: #ff7671; /* Đổi màu hồng khi di chuột */
+    transform: scale(1.02);
+}
+
+/* Style cho các nút Connect (Facebook, Instagram...) */
+.about-text a {
+    display: inline-block;
+    background: #ffb9b3;
+    color: white !important;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.about-text a:hover {
+    background: #ff7671;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(222,147,147,0.3);
+}
+
+        .list-ngoi-sao {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            /* Chia cột cho danh sách */
+            column-count: 2;
+            column-gap: 40px;
+        }
+
+        .list-ngoi-sao li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            font-family: "Happy Monkey", sans-serif;
+            color: #5a2429;
+            break-inside: avoid; /* Không để 1 dòng bị cắt đôi giữa 2 cột */
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .list-ngoi-sao li::before {
+            content: "⭐";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 1px;
+        }
+
+        .list-ngoi-sao li:hover {
+            color: #ff7671;
+            transform: translateX(8px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #fbeaea;
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 20px;
+                display: none;
+                box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a {
+                color: #de9393 !important;
+                background: white;
+                border: 1px solid #ffb9b3;
+            }
+            .list-ngoi-sao {
+                column-count: 1; /* Trên mobile hiện 1 cột cho dễ đọc */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-logo"><a href="index.html">🌸 PHUONG THAO</a></div>
+    <div class="nav-links" id="navLinks">
+        <a href="Memory.html">Kỉ niệm ở Đài</a>
+        <a href="drink.html">File sách</a>
+        <a href="11.html">Luyện nghe</a>
+        <a href="zhongwen.html">TOCFL</a>
+        <a href="list.html">LIST TRUYỆN RI SƯU TẦM</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="name-icon">
+    <p class="name-text"><b>
+        ૮₍´˶• . • ⑅ ₎ა<br>
+        ⋆. 𐙚˚࿔ PHUONG THAO 𝜗𝜚˚⋆
+    </b></p>
+</div><fieldset>
+    <ul class="list-ngoi-sao">
+        <li>Dưới ánh đèn xanh</li>
+        <li>Mục trung tàng hổ</li>
+        <li>Tình yêu đen đuổi</li>
+        <li>Hôn tôi đi đồ dối trá</li>
+        <li>Tình yêu ảo ảnh</li>
+        <li>Bí mật nhân viên văn phòng K</li>
+        <li>Đóa hồng và ly Champagne</li>
+        <li>Dạ ký</li>
+        <li>Chiếu tướng</li>
+        <li>Tình nhân 4 tuần</li>
+        <li>Bj alex</li>
+        <li>Bj md</li>
+        <li>Mùa xuân hoa nở</li>
+        <li>Hoa chúc gươm</li>
+        <li>Sadistic beauty bl sidestory</li>
+        <li>Passion</li>
+        <li>Yusu à, cái đó không thể ăn</li>
+        <li>It not like that</li>
+        <li>Tên lưu ban</li>
+        <li>Yêu em đi bác sĩ</li>
+        <li>Cuồng nhiệt</li>
+        <li>Here u are</li>
+        <li>Làm cách nào để theo đuổi alpha</li>
+        <li>Như con sóng lớn</li>
+        <li>Đêm bên làn nước</li>
+        <li>Một gã như cậu</li>
+        <li>Hình thái khởi sinh</li>
+        <li>Trốn ngay đi trợ lí Ha</li>
+        <li>Anh bạn thiên thần</li>
+        <li>Thẩm thăng</li>
+        <li>Ngọt ngào dành cho em</li>
+        <li>Không chốn yêu đương</li>
+        <li>Tình đơn phương</li>
+        <li>Thăng cấp tình yêu</li>
+        <li>Ứng dụng xấu hổ</li>
+        <li>Red candy</li>
+        <li>Tiền bối đừng khóc mà</li>
+        <li>Hoa giấy</li>
+        <li>Tình chàng 30</li>
+        <li>Minh nhật tinh trình</li>
+        <li>Nhân ngư rơi xuống</li>
+        <li>Tin tức tố nói chúng ta không thể</li>
+        <li>Báo thù</li>
+        <li>Khi đôi chân thôi bước</li>
+        <li>Liveta</li>
+        <li>Mùi hương khó cưỡng</li>
+        <li>19 days</li>
+        <li>Đồ mưu bất quỹ</li>
+        <li>Đánh chết cũng ko làm sư tôn</li>
+        <li>Thú thụ bất thân</li>
+        <li>Ma tôn muốn ôm ôm</li>
+        <li>Truy bắt Ngao Ngao</li>
+        <li>Đàn thỏ của Habibi</li>
+        <li>Thời gian giữa sói và chó</li>
+        <li>Điểm cuối</li>
+        <li>Vị khách không mời trên vai tôi</li>
+        <li>Chàng quản gia</li>
+        <li>Thủ hoa</li>
+        <li>Hắc vực</li>
+        <li>Đừng nói yêu tôi</li>
+        <li>Nhập mộ cho thần</li>
+        <li>Ngộ xà</li>
+        <li>Xác xuất tình yêu</li>
+        <li>Bọ rùa tháng 6</li>
+        <li>Quan hệ thế thân</li>
+        <li>Cửa hàng tiện lợi nguy hiểm</li>
+        <li>Trigger BL</li>
+        <li>Em trai nhà bên khó quản quá</li>
+        <li>Hoa ly hổ</li>
+        <li>Ảnh đế làm loạn đòi ly hôn</li>
+        <li>Tôi nghi ngờ hệ thống thích tôi</li>
+        <li>Tình yêu đích thực</li>
+        <li>Quy linh</li>
+        <li>Nịch tửu</li>
+        <li>Cường thế công chiếm</li>
+        <li>Nhân ngư rơi xuống</li>
+        <li>Người bạn xinh đẹp</li>
+        <li>Đừng có tỏ tình với tôi mà</li>
+        <li>Làm ơn cho tôi nếm thử một miếng</li>
+        <li>Cô vương tại hạ</li>
+        <li>Thiếu gia hầu môn sủng tận trời</li>
+        <li>Vô thường số 4843</li>
+        <li>Tiểu vương tử</li>
+        <li>Rực rỡ</li>
+        <li>Khoảng cách xa lạ</li>
+        <li>Kẻ bám đuôi</li>
+        <li>Dear door</li>
+        <li>King's maker</li>
+        <li>Nhân viên mới</li>
+        <li>Đứa trẻ ma</li>
+        <li>Phản công</li>
+        <li>Tương khắc</li>
+        <li>Ang ang</li>
+        <li>Vượt qua ranh giới</li>
+        <li>Nỗi ám ảnh Pheromone</li>
+        <li>Sắc màu yêu thương</li>
+        <li>Bài học của rau mùi</li>
+        <li>Hôm nay trời vẫn xanh</li>
+        <li>Tình cuồng say</li>
+        <li>Lang lang thượng khẩu</li>
+        <li>Thê vi thượng</li>
+        <li>Bán yêu</li>
+        <li>Xác suất tình yêu</li>
+        <li>Nhật thực</li>
+        <li>Omega complex</li>
+        <li>Em sẽ chờ anh ở năm 1999</li>
+        <li>Cha vợ đại nhân là bà xã</li>
+        <li>Trò chơi săn bắn</li>
+        <li>Dior tiên sinh</li>
+        <li>Dạ xoa hóa liên ký</li>
+        <li>Định rõ mối quan hệ</li>
+        <li>Tương phùng</li>
+        <li>Nhiệt độ xã giao</li>
+        <li>Đề này khó quá rồi</li>
+        <li>Theo đuổi quý ngài CEO</li>
+        <li>Đừng lại gần giới hạn 10M của tôi</li>
+        <li>Tôi phải làm một kẻ đại xấu xa</li>
+        <li>Chuyện tình cây liễu</li>
+        <li>Shutline</li>
+        <li>Mad place</li>
+        <li>Tâm tư của Juin</li>
+        <li>Muốn làm tình đầu</li>
+        <li>Xin lỗi vì đã không thể bảo vệ cậu</li>
+        <li>Cách thức trở thành gia đình</li>
+        <li>Người trong tim</li>
+        <li>Người tình của Woon Woo</li>
+        <li>Tôi muốn ly hôn</li>
+        <li>Nụ hôn tàn bạo</li>
+        <li>Hoán vị</li>
+        <li>Bạn tình một đêm</li>
+        <li>Nhớ cẩn trọng ngày rằm tháng 3</li>
+        <li>Cạnh kiếm chi phong</li>
+        <li>Kick off</li>
+        <li>Hàng đã giao</li>
+        <li>Người tình của Sura</li>
+        <li>Viễn khách</li>
+        <li>Tri bỉ</li>
+        <li>Bùi bảo</li>
+        <li>Ngụy trang học tra</li>
+        <li>Lai sinh bất kiến</li>
+        <li>Lạc trì</li>
+        <li>Tôi phải làm kẻ đại xấu xa</li>
+        <li>Học bá hôm nay lại chọc đến tiểu nãi bao rồi sao</li>
+        <li>Hàn viễn</li>
+        <li>Lâu rồi không gặp</li>
+        <li>Plaything</li>
+        <li>Moon quake</li>
+        <li>Vết bầm</li>
+        <li>Thần tượng đến rồi?</li>
+        <li>Thiếu niên sò</li>
+    </ul>
+</fieldset>
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@_etori1012_/video/7085357592465165594" data-video-id="7085357592465165594" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@_etori1012_" href="https://www.tiktok.com/@_etori1012_?refer=embed">@_etori1012_</a> <p></p> <a target="_blank" title="♬ double take - Dhruv" href="https://www.tiktok.com/music/double-take-6878256985041553410?refer=embed">♬ double take - Dhruv</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+<div class="about">
+  <div class="pacifico-regular"><p>Connect with me</div>
+  <div class="about-text">
+    <a href="https://www.facebook.com/phuong.thao.754970/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/etori1216/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@_etori1012_" target="_blank">Tiktok</a>
+  </div>
+</div>
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>
